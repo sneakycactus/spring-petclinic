@@ -1,0 +1,16 @@
+<!DOCTYPE aspectj PUBLIC
+        "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+    <weaver options="-Xlint:ignore">
+		<exclude within="com.sun.proxy..*" />
+    </weaver>
+
+    <aspects>
+        <concrete-aspect name="profiler"
+                         extends="org.stagemonitor.requestmonitor.profiler.ProfilingAspect">
+            <pointcut name="methodsToProfile" expression="execution(* org.springframework.samples.petclinic..*(..))
+            AND !within(org.springframework.samples.petclinic.model..*)"/>
+        </concrete-aspect>
+        <aspect name="org.stagemonitor.jdbc.ConnectionMonitorAspect"/>
+    </aspects>
+</aspectj>
