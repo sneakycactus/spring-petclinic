@@ -12,5 +12,7 @@
             AND !within(org.springframework.samples.petclinic.model..*)"/>
         </concrete-aspect>
         <aspect name="org.stagemonitor.jdbc.ConnectionMonitorAspect"/>
+        <aspect name="org.stagemonitor.logging.InformationAppendingLoggingAspect"/>
+        <aspect name="org.stagemonitor.logging.MeterLoggingAspect"/>
     </aspects>
 </aspectj>
